@@ -1,6 +1,7 @@
 package com.efc.bookstoreapi.services;
 
 import com.efc.bookstoreapi.domain.Categoria;
+import com.efc.bookstoreapi.exceptions.ObjectNotFoundException;
 import com.efc.bookstoreapi.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class CategoriaService {
     public Categoria findById(Integer id) {
 
         Optional<Categoria> obj = repo.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! ID: " + id + ", Tipo: " + Categoria.class.getName()));
     }
 
 }
