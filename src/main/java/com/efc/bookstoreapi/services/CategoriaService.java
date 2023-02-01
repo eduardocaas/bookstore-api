@@ -33,14 +33,14 @@ public class CategoriaService {
     }
 
     public Categoria update(Integer id, CategoriaDTO objDto) {
-        Categoria obj = findById(id);
+        Categoria newObj = findById(id);
         if (objDto.getNome() != null) {
-            obj.setNome(objDto.getNome());
+            newObj.setNome(objDto.getNome());
         }
         if (objDto.getDescricao() != null) {
-            obj.setDescricao(objDto.getDescricao());
+            newObj.setDescricao(objDto.getDescricao());
         }
-        return repo.save(obj);
+        return repo.save(newObj);
     }
 
     public void delete(Integer id) {
