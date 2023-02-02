@@ -1,6 +1,8 @@
 package com.efc.bookstoreapi.dtos;
 
 import com.efc.bookstoreapi.domain.Categoria;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 
@@ -9,7 +11,11 @@ public class CategoriaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
+    @NotEmpty(message = "Campo NOME é requerido!")
+    @Length(min = 3, message = "O campo NOME deve ter mais de 3 caracteres")
     private String nome;
+    @NotEmpty(message = "Campo DESCRIÇÃO é requerido!")
+    @Length(min = 3, message = "O campo DESCRIÇÃO deve ter mais de 3 caracteres")
     private String descricao;
 
     public CategoriaDTO() {
