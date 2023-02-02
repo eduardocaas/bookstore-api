@@ -3,6 +3,7 @@ package com.efc.bookstoreapi.controllers;
 import com.efc.bookstoreapi.domain.Livro;
 import com.efc.bookstoreapi.dtos.LivroDTO;
 import com.efc.bookstoreapi.services.LivroService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ public class LivroController {
     }
 
     @PostMapping
-    public ResponseEntity<Livro> create(@RequestParam(value = "categoria", defaultValue = "0") Integer id_cat,
+    public ResponseEntity<Livro> create(@Valid @RequestParam(value = "categoria", defaultValue = "0") Integer id_cat,
                                         @RequestBody Livro obj) {
         Livro newObj = service.create(id_cat, obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livros/{id}").
@@ -49,7 +50,7 @@ public class LivroController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Livro> update(@PathVariable Integer id, @RequestBody Livro obj) {
+    public ResponseEntity<Livro> update(@Valid @PathVariable Integer id, @RequestBody Livro obj) {
         Livro newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
