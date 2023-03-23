@@ -15,7 +15,7 @@ public class CorsConfiguration {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200")
+                        .allowedOrigins("https://bookstore-eta-eight.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD");
             }
         };
