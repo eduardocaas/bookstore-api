@@ -17,9 +17,12 @@ public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
     @NotEmpty(message = "Campo NOME é requerido!")
     @Length(min = 3, message = "O campo NOME deve ter mais de 3 caracteres")
+    @Column(unique = true)
     private String nome;
+    
     @NotEmpty(message = "Campo DESCRIÇÃO é requerido!")
     @Length(min = 3, message = "O campo DESCRIÇÃO deve ter mais de 3 caracteres")
     private String descricao;
