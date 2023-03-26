@@ -18,6 +18,7 @@ public class Livro implements Serializable {
     private Integer id;
     @NotEmpty(message = "Campo TÍTULO é requerido!")
     @Length(min = 3, message = "O campo TITULO deve ter mais de 3 caracteres")
+    @Column(unique = true)
     private String titulo;
     @NotEmpty(message = "Campo NOME DO AUTOR é requerido!")
     @Length(min = 3, message = "O campo NOME DO AUTOR deve ter mais de 3 caracteres")
