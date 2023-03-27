@@ -25,6 +25,7 @@ public class Livro implements Serializable {
     private String nome_autor;
     @NotEmpty(message = "Campo TEXTO é requerido!")
     @Length(min = 3, message = "O campo TEXTO deve ter mais de 3 caracteres")
+    @Column(length = 1000)
     private String texto;
 
     @JsonIgnore
